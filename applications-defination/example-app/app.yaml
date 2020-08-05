@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/DheerajJoshi/argocd.git
     targetRevision: HEAD
-    path: example-app
+    path: services/example-app
     directory:
       recurse: true
   destination:
