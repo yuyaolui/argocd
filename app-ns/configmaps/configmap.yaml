@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-ns-config
+data:
+  config.json: |
+    {
+      "environment" : "dev"
+    }
+# kubectl create configmap app-ns-config --from-file ./golang/configs/config.json

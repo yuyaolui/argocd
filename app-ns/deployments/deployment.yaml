@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-ns-deploy
+  labels:
+    app: app-ns
+  annotations:
+spec:
+  selector:
+    matchLabels:
+      app: app-ns
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: app-ns
+    spec:
+      containers:
+      - name: app-ns
+        image: aimvector/python:1.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        volumeMounts:
+        - name: secret-volume
+          mountPath: /secrets/
+        - name: config-volume
+          mountPath: /configs/
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: app-ns-secret
+      - name: config-volume
+        configMap:
+          name: app-ns-config #name of our configmap object

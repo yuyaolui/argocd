@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-ns
+  namespace: argocd
+spec:
+  project: ovo-teralite-development
+  source:
+    repoURL: https://github.com/marcel-dempers/docker-development-youtube-series.git # need to update this
+    targetRevision: HEAD
+    path: argo/app-ns
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app-ns
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
