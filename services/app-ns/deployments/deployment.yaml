@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: app-ns
-  replicas: 7
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
