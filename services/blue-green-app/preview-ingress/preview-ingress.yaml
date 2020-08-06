@@ -1,17 +1,17 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: canary-app
+  name: blue-green-app-preview
   annotations:
     ingress.kubernetes.io/proxy-body-size: 100M
-    kubernetes.io/ingress.class: "nginx"
-    ingress.kubernetes.io/app-root: "/"
+    kubernetes.io/ingress.class: nginx
+    ingress.kubernetes.io/app-root: /
 spec:
   rules:
-  - host: canary-app.foo.bar
+  - host: blue-green-app-preview.foo.bar
     http:
       paths:
       - path: /
         backend:
-          serviceName: canary-app
+          serviceName: blue-green-app-preview
           servicePort: 80
