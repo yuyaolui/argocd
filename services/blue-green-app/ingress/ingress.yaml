@@ -10,7 +10,7 @@ metadata:
     ingress.kubernetes.io/app-root: "/"
 spec:
   rules:
-  - host: blue-green-app.apps.argoproj.io
+  - host: blue-green-app.foo.bar
     http:
       paths:
       - path: /

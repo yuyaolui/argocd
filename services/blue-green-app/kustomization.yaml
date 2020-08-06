@@ -10,6 +10,5 @@ resources:
 - namespaces/blue-green-app.yaml
 - preview-service/preview-service.yaml
 images:
-# - name: alexmt/rollouts-demo
 - name: argoproj/rollouts-demo
   newTag: blue
