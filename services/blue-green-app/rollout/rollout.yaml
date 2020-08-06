@@ -44,13 +44,13 @@ spec:
             mountPath: /secrets/
           - name: config-volume
             mountPath: /configs/
-          volumes:
-          - name: secret-volume
-            secret:
-              secretName: blue-green-app-secret
-          - name: config-volume
-            configMap:
-              name: blue-green-config #name of our configmap object
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: blue-green-app-secret
+      - name: config-volume
+        configMap:
+          name: blue-green-config
   strategy:
     blueGreen:
       activeService: blue-green-app

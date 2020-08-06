@@ -44,13 +44,13 @@ spec:
             mountPath: /secrets/
           - name: config-volume
             mountPath: /configs/
-          volumes:
-          - name: secret-volume
-            secret:
-              secretName: canary-app-secret
-          - name: config-volume
-            configMap:
-              name: canary-app-config #name of our configmap object
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: canary-app-secret
+      - name: config-volume
+        configMap:
+          name: canary-app-config #name of our configmap object
   strategy:
     canary:
        steps:
