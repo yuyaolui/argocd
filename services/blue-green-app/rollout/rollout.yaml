@@ -18,11 +18,12 @@ spec:
     spec:
       containers:
         - name: blue-green-app
-          image: "alexmt/rollouts-demo:latest"
+          # image: "alexmt/rollouts-demo:latest"
+          image: "argoproj/rollouts-demo:latest"
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8080
               protocol: TCP
           livenessProbe:
             httpGet:

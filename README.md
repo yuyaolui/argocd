@@ -30,12 +30,12 @@ argocd-server-75877b6ffb-qwxkq                  0/1     Running   0          29s
 ```
 3. Once all pods are in running state then access ArgoCD UI by port forwarding. You can also use load balancing but I don't prefer to open CI/CD tool
 ```
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl port-forward svc/argocd-server -n argocd 8888:443
 ```
 
 Access the UI on browser
 ```
-https://localhost:8080
+https://localhost:8888
 ```
 
 4. Login into the UI using username and password
@@ -58,7 +58,7 @@ WARNING: server certificate had error: x509: certificate signed by unknown autho
 Username: admin
 Password:
 'admin' logged in successfully
-Context 'localhost:8080' updated
+Context 'localhost:8888' updated
 ```
 
 List all account
