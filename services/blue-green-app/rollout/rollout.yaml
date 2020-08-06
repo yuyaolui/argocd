@@ -1,0 +1,57 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: blue-green-app
+  labels:
+    app: blue-green-app
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: blue-green-app
+  template:
+    metadata:
+      labels:
+        app: blue-green-app
+    spec:
+      containers:
+        - name: blue-green-app
+          image: "alexmt/rollouts-demo:latest"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          volumeMounts:
+          - name: secret-volume
+            mountPath: /secrets/
+          - name: config-volume
+            mountPath: /configs/
+          volumes:
+          - name: secret-volume
+            secret:
+              secretName: blue-green-app-secret
+          - name: config-volume
+            configMap:
+              name: blue-green-config #name of our configmap object
+  strategy:
+    blueGreen:
+      activeService: blue-green-app
+      previewService: blue-green-app-preview

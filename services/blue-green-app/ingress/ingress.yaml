@@ -1,0 +1,18 @@
+# nginx ingress controller
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: blue-green-app
+  annotations:
+    ingress.kubernetes.io/proxy-body-size: 100M
+    kubernetes.io/ingress.class: "nginx"
+    ingress.kubernetes.io/app-root: "/"
+spec:
+  rules:
+  - host: blue-green-app.apps.argoproj.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: blue-green-app
+          servicePort: 80

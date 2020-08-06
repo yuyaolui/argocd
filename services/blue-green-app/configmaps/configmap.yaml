@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blue-green-config
+data:
+  config.json: |
+    {
+      "environment" : "prd"
+    }
+# kubectl create configmap blue-green-config --from-file ./golang/configs/config.json

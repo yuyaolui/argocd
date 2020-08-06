@@ -1,9 +1,9 @@
 CLI
 ```
 argocd app create --name test \
---repo https://github.com/marcel-dempers/docker-development-youtube-series \
+--repo https://github.com/DheerajJoshi/argocd.git \
 --dest-server https://kubernetes.default.svc \
---dest-namespace marcel --path kubernetes
+--dest-namespace <any-namespace> --path kubernetes
 ```
 
 YAML
@@ -13,14 +13,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: test
-  namespace: marcel
+  namespace: <any-namespace>
 spec:
-  project: default
+  project: <project-name>
   source:
-    repoURL: https://github.com/marcel-dempers/docker-development-youtube-series.git
+    repoURL: https://github.com/DheerajJoshi/argocd.git
     targetRevision: HEAD
-    path: argo/example-app
+    path: services/example-app
   destination:
     server: https://kubernetes.default.svc
-    namespace: marcel
+    namespace: <any-namespace>
 ```

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: canary-app-config
+data:
+  config.json: |
+    {
+      "environment" : "prd"
+    }
+# kubectl create configmap canary-app-config --from-file ./golang/configs/config.json

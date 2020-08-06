@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: blue-green-app
+  namespace: argocd
+spec:
+  project: ovo-teralite-production
+  source:
+    repoURL: https://github.com/DheerajJoshi/argocd.git
+    targetRevision: HEAD
+    path: services/blue-green-app
+    directory:
+      # Set it false as I am using kustomize which will list the desired manifests
+      recurse: false
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: blue-green-app
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
