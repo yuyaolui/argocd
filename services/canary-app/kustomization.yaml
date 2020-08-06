@@ -12,4 +12,4 @@ resources:
 images:
 # - name: alexmt/rollouts-demo
 - name: argoproj/rollouts-demo
-  newTag: red
+  newTag: yellow
