@@ -9,6 +9,7 @@ resources:
 - configmaps/configmap.yaml
 - namespaces/blue-green-app.yaml
 - preview-service/preview-service.yaml
+
 images:
-- name: argoproj/rollouts-demo
-  newTag: blue
+  - name: argoproj/rollouts-demo
+    newTag: blue

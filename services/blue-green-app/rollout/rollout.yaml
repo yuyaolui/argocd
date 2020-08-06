@@ -18,7 +18,6 @@ spec:
     spec:
       containers:
         - name: blue-green-app
-          # image: "alexmt/rollouts-demo:latest"
           image: "argoproj/rollouts-demo:latest"
           imagePullPolicy: Always
           ports:
