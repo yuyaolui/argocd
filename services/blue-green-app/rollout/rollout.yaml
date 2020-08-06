@@ -55,3 +55,4 @@ spec:
     blueGreen:
       activeService: blue-green-app
       previewService: blue-green-app-preview
+      autoPromotionEnabled: false

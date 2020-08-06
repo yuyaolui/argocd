@@ -1,4 +1,3 @@
----
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -53,6 +52,7 @@ spec:
           name: canary-app-config #name of our configmap object
   strategy:
     canary:
+       canaryService: canary-app-preview
        steps:
        - setWeight: 20
        - pause: {}

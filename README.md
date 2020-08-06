@@ -107,9 +107,11 @@ kubectl apply -f applications-defination/canary-app/app.yaml
 Canary deployment
 ```
 kubectl port-forward svc/canary-app -n canary-app 9999:80
+kubectl port-forward svc/canary-app-preview -n canary-app 9000:80
 ```
 
 Blue Green Deployment
 ```
-kubectl port-forward svc/blue-green-app -n blue-green-app 9090:80
+kubectl port-forward svc/blue-green-app -n blue-green-app 9999:80
+kubectl port-forward svc/blue-green-app-preview -n blue-green-app 9000:80
 ```
