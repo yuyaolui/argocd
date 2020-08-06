@@ -100,3 +100,16 @@ argocd proj create ovo-teralite-production --description "Project for Teralite p
 ```
 kubectl apply -f applications-defination/canary-app/app.yaml
 ```
+
+
+
+## Before access the cluster (Make sure you update your /etc/hosts with same information)
+Canary deployment
+```
+kubectl port-forward svc/canary-app -n canary-app 9999:80
+```
+
+Blue Green Deployment
+```
+kubectl port-forward svc/blue-green-app -n blue-green-app 9090:80
+```
