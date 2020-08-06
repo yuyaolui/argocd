@@ -12,4 +12,4 @@ resources:
 
 images:
   - name: argoproj/rollouts-demo
-    newTag: red
+    newTag: purple
