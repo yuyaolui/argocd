@@ -95,3 +95,8 @@ argocd proj create ovo-teralite-development --description "Project for Teralite 
 ```
 argocd proj create ovo-teralite-production --description "Project for Teralite production work" --dest \*,\*
 ```
+
+## Deploy Canary app
+```
+kubectl apply -f applications-defination/canary-app/app.yaml
+```
