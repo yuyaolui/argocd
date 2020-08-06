@@ -18,8 +18,8 @@ spec:
     spec:
       containers:
         - name: canary-app
-          # image: "alexmt/rollouts-demo:latest"
-          image: "argoproj/rollouts-demo:red"
+          image: "alexmt/rollouts-demo:latest"
+          # image: "argoproj/rollouts-demo:red"
           imagePullPolicy: Always
           ports:
             - name: http

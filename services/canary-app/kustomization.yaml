@@ -9,7 +9,8 @@ resources:
 - configmaps/configmap.yaml
 - namespaces/canary-app.yaml
 - preview-service/preview-service.yaml
+
 images:
-- name: alexmt/rollouts-demo
-# - name: argoproj/rollouts-demo
-  newTag: red
+  - name: alexmt/rollouts-demo
+    newTag: red
+  # - name: argoproj/rollouts-demo
