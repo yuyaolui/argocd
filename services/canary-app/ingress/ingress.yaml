@@ -10,7 +10,7 @@ metadata:
     ingress.kubernetes.io/app-root: "/"
 spec:
   rules:
-  - host: 127.0.0.1:9999
+  - host: canary-app.foo.bar
     http:
       paths:
       - path: /
