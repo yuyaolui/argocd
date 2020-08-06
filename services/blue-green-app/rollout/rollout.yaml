@@ -22,7 +22,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8888
               protocol: TCP
           resources:
             requests:

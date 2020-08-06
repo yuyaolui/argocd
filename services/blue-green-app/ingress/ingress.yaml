@@ -15,4 +15,4 @@ spec:
       - path: /
         backend:
           serviceName: blue-green-app
-          servicePort: 80
+          servicePort: 8888
