@@ -10,7 +10,7 @@ kubectl create namespace argocd
 
 2. Install ArgoCD server and components
 ```
-kubectl -n argocd apply -f argo-cd-installation/install.yaml
+kubectl -n argocd apply -f argo-cd-installation/without_ha/install.yaml
 ```
 
 Get details of pod running using this command
