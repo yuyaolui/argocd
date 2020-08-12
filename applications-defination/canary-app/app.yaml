@@ -4,9 +4,9 @@ metadata:
   name: canary-app
   namespace: argocd
 spec:
-  project: ovo-teralite-production
+  project: default
   source:
-    repoURL: https://github.com/DheerajJoshi/argocd.git
+    repoURL: https://github.com/yuyaolui/argocd.git
     targetRevision: HEAD
     path: services/canary-app
     directory:
